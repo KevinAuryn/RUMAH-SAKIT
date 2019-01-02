@@ -1,0 +1,1 @@
+<%@ page language="java" contentType="application/json; charset=UTF-8" pageEncoding="UTF-8"%><%@ page import="org.json.*"%><% response.setContentType("application/json"); JSONObject json = new JSONObject();json.put("status", "404");json.put("message", "Page Not Found");json.put("url", request.getAttribute("javax.servlet.forward.request_uri"));out.println(json);%>

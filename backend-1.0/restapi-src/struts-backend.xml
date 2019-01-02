@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	
+	<package name="backend" extends="default" namespace="/json">
+   
+  	 <action name="AppConfigJsonAction_*" method="{1}" class="com.backend.action.AppConfigJsonAction">
+			<interceptor-ref name="paramsPrepareParamsStack"/>
+			<interceptor-ref name="defaultStack"/>
+			<interceptor-ref name="json">
+				<param name="contentType">application/json</param>
+			</interceptor-ref>
+			<result name="insertConfigJsonSuccess" type="json"><param name="noCache">true</param></result>
+			<result name="updateConfigJsonSuccess" type="json"><param name="noCache">true</param></result>
+			<result name="deleteConfigJsonSuccess" type="json"><param name="noCache">true</param></result>
+			<result name="testListJsonSuccess" type="json"><param name="noCache">true</param></result>
+			<result name="requestToSMMFJsonSuccess" type="json"><param name="noCache">true</param></result>
+			<result name="merchantRequestJsonSuccess" type="json"><param name="noCache">true</param></result>
+		</action> 
+		
+		 <action name="PartnerJsonAction_*" method="{1}" class="com.backend.action.PartnerJsonAction">
+			<interceptor-ref name="paramsPrepareParamsStack"/>
+			<interceptor-ref name="defaultStack"/>
+			<interceptor-ref name="json">
+				<param name="contentType">application/json</param>
+			</interceptor-ref>
+			<result name="partnerRequestJsonSuccess" type="json"><param name="noCache">true</param></result>
+			<result name="sendToKBIJJsonSuccess" type="json"><param name="noCache">true</param></result>
+		</action> 
+		
+		<action name="UserAction_*" method="{1}" class="com.backend.action.UserAction">
+			<interceptor-ref name="paramsPrepareParamsStack"/>
+			<interceptor-ref name="defaultStack"/>
+			<interceptor-ref name="json">
+				<param name="contentType">application/json</param>
+			</interceptor-ref>
+			<result name="loginRequestJsonSuccess" type="json"><param name="noCache">true</param></result>
+			<!-- <result name="sendToKBIJJsonSuccess" type="json"><param name="noCache">true</param></result> -->
+		</action> 
+      
+	</package>
+   
+</struts>

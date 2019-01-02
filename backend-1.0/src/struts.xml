@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	
+	<!-- khusus > struts 2.3.15.2 -->
+	<constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+	<constant name="struts.mapper.action.prefix.enabled" value="false"/>
+	<constant name="struts.action.excludePattern" value="^ws://.+$"/>
+	
+	<constant name="struts.devMode" value="false" />
+	<constant name="struts.custom.i18n.resources" value="globalMessages" />
+	<!-- <constant name="struts.action.extension" value="action" /> -->
+	<constant name="struts.ui.theme" value="simple" />
+	<constant name="struts.multipart.parser" value="jakarta"/>
+	
+	<constant name="struts.multipart.saveDir" value="/home/aaz/tmp"/>
+	
+	<!-- 
+	<constant name="struts.multipart.saveDir" value="/home/agunghadiw/tmp"/>
+	-->
+	
+	<constant name="struts.multipart.maxSize" value="100000000"/>
+	
+	<include file="struts-backend.xml" />
+	<include file="struts-basic.xml" />
+	
+	<package name="default" extends="struts-default,json-default">
+   
+		<interceptors>
+		
+		<interceptor name="authenticationInterceptor" class="com.mpe.common.interceptor.AuthenticationInterceptor"/>
+    	<interceptor name="objectManipulatorInterceptor" class="com.mpe.common.interceptor.ObjectManipulatorInterceptor"/>
+    	
+    	<interceptor-stack name="reportStack">
+	    	<interceptor-ref name="authenticationInterceptor"/>
+	        <interceptor-ref name="objectManipulatorInterceptor"/>
+	        <interceptor-ref name="paramsPrepareParamsStack"/>
+	        <!--
+	        <interceptor-ref name="timer"/>
+	        -->
+	        <interceptor-ref name="tokenSession">
+	      		<param name="excludeMethods">partialList,list,popUp</param>
+	      		<param name="includeMethods">save,update</param>
+	      	</interceptor-ref>
+    		<interceptor-ref name="json"/>
+    	</interceptor-stack>
+      
+      
+      	<interceptor-stack name="mpeStack">
+      		<interceptor-ref name="authenticationInterceptor"/>
+        	<interceptor-ref name="objectManipulatorInterceptor"/>
+        	<interceptor-ref name="tokenSession">
+	      		<param name="excludeMethods">partialList,list,popUp,home</param>
+	      		<param name="includeMethods">save,update</param>
+	      	</interceptor-ref>
+	        <interceptor-ref name="paramsPrepareParamsStack"/>
+	        <interceptor-ref name="timer"/>
+	      	<!-- 
+	      	<interceptor-ref name="execAndWait">
+	      		<param name="delay">1000</param>
+						<param name="delaySleepInterval">50</param>
+	      	</interceptor-ref>
+	      	-->
+    		<interceptor-ref name="json"/>
+    	</interceptor-stack>
+    
+    
+    	<interceptor-stack name="mpeStackWithoutWait">
+    		<interceptor-ref name="authenticationInterceptor"/>
+        	<interceptor-ref name="objectManipulatorInterceptor"/>
+	        <interceptor-ref name="paramsPrepareParamsStack"/>
+	        <!-- 
+	        <interceptor-ref name="timer"/>
+	        -->
+	        <interceptor-ref name="tokenSession">
+	      		<param name="excludeMethods">partialList,list,popUp</param>
+	      		<param name="includeMethods">save,update</param>
+	      	</interceptor-ref>
+    		<interceptor-ref name="json"/>
+    	</interceptor-stack>
+    	
+    </interceptors>
+    
+    <default-interceptor-ref name="mpeStack"/>
+    
+   	<global-results>
+    	<result name="authentication_required" type="redirect">/basic/LogonAction_form.action</result>
+    	<result name="privilege_required" type="redirect">/no_privilege.jsp</result>
+    	<result name="index" type="redirect">/index.jsp</result>
+    	<result name="invalid.token" type="redirect">/invalid_token.jsp</result>
+    	<result name="invalid.workflow" type="redirect">/invalid_workflow.jsp</result>
+    	<result name="wait">/please_wait.jsp</result>
+    	<result name="exception_error">/exception_error.jsp</result>
+    	<result name="change_password_first_time" type="redirect">/basic/UserAction_changePasswordEdit.action?subaction=firstTime</result>
+    	<result name="user_pass_expired" type="redirect">/basic/LogonAction_userPassExpiredForm.action</result>
+		</global-results>
+		
+		<global-exception-mappings>
+    	<exception-mapping exception="java.lang.Exception" result="exception_error"/>
+    </global-exception-mappings>
+		
+	</package>
+	
+</struts>

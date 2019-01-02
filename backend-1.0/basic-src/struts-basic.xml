@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	
+	<package name="basic" extends="default" namespace="/basic">
+   
+   <!--  <action name="LogonAction_*" method="{1}" class="com.mpe.basic.action.LogonAction">
+		<interceptor-ref name="paramsPrepareParamsStack"/>
+		<interceptor-ref name="defaultStack"/>
+		<result name="input">/pages/basic/logon/${previousPage}.jsp</result>
+		<result name="success">/pages/basic/logon/{1}.jsp</result>
+		<result name="redirect" type="redirect">${mappedRequest}</result>
+	</action>
+		
+	<action name="ApplicationSetupAction_*" method="{1}" class="com.mpe.basic.action.ApplicationSetupAction">
+		<result name="success">/pages/basic/applicationSetup/{1}.jsp</result>
+		<result name="input">/pages/basic/applicationSetup/${previousPage}.jsp</result>
+		<result name="redirect" type="redirect">${mappedRequest}</result>
+	</action>
+		
+    <action name="UserAction_*" method="{1}" class="com.mpe.basic.action.UserAction">
+		<result name="success">/pages/basic/user/{1}.jsp</result>
+		<result name="input">/pages/basic/user/${previousPage}.jsp</result>
+		<result name="redirect" type="redirect">${mappedRequest}</result>
+	</action> -->
+		
+	<action name="PermissionAction_*" method="{1}" class="com.mpe.basic.action.PermissionAction">
+		<result name="success">/pages/basic/permission/{1}.jsp</result>
+		<result name="input">/pages/basic/permission/${previousPage}.jsp</result>
+		<result name="redirect" type="redirect">${mappedRequest}</result>
+	</action>
+	
+	<!-- <action name="RoleAction_*" method="{1}" class="com.mpe.basic.action.RoleAction">
+		<result name="success">/pages/basic/role/{1}.jsp</result>
+		<result name="input">/pages/basic/role/${previousPage}.jsp</result>
+		<result name="redirect" type="redirect">${mappedRequest}</result>
+	</action>
+	
+	<action name="OrganizationAction_*" method="{1}" class="com.mpe.basic.action.OrganizationAction">
+		<result name="success">/pages/basic/organization/{1}.jsp</result>
+		<result name="input">/pages/basic/organization/${previousPage}.jsp</result>
+		<result name="redirect" type="redirect">${mappedRequest}</result>
+	</action>
+     
+	<action name="LookupAction_*" method="{1}" class="com.mpe.basic.action.LookupAction">
+		<result name="success">/pages/basic/lookup/{1}.jsp</result>
+		<result name="input">/pages/basic/lookup/${previousPage}.jsp</result>
+		<result name="redirect" type="redirect">${mappedRequest}</result>
+	</action>
+	
+	<action name="StatusAction_*" method="{1}" class="com.mpe.basic.action.StatusAction">
+		<result name="success">/pages/basic/status/{1}.jsp</result>
+		<result name="input">/pages/basic/status/${previousPage}.jsp</result>
+		<result name="redirect" type="redirect">${mappedRequest}</result>
+	</action>
+	
+	<action name="BranchAction_*" method="{1}" class="com.mpe.basic.action.BranchAction">
+		<result name="success">/pages/basic/branch/{1}.jsp</result>
+		<result name="input">/pages/basic/branch/${previousPage}.jsp</result>
+		<result name="redirect" type="redirect">${mappedRequest}</result>
+	</action>
+	
+	<action name="BranchJsonAction_*" method="{1}" class="com.mpe.basic.action.BranchJsonAction">
+		<result name="jsonBranchTypeSuccess" type="json">
+			<param name="noCache">true</param>
+		</result>
+	</action> -->
+	<!-- 
+	<action name="UserActivityAction_*" method="{1}" class="com.mpe.basic.action.UserActivityAction">
+		<result name="success">/pages/basic/userActivity/{1}.jsp</result>
+		<result name="input">/pages/basic/userActivity/${previousPage}.jsp</result>
+		<result name="redirect" type="redirect">${mappedRequest}</result>
+	</action>
+	
+	<action name="UserDelegationAction_*" method="{1}" class="com.mpe.basic.action.UserDelegationAction">
+		<result name="success">/pages/basic/userDelegation/{1}.jsp</result>
+		<result name="input">/pages/basic/userDelegation/${previousPage}.jsp</result>
+		<result name="redirect" type="redirect">${mappedRequest}</result>
+	</action>
+	
+	<action name="WorkOffDayAction_*" method="{1}" class="com.mpe.basic.action.WorkOffDayAction">
+		<result name="success">/pages/basic/workOffDay/{1}.jsp</result>
+		<result name="input">/pages/basic/workOffDay/${previousPage}.jsp</result>
+		<result name="redirect" type="redirect">${mappedRequest}</result>
+	</action>
+	
+	<action name="WorkOffDayJsonAction_*" method="{1}" class="com.mpe.basic.action.WorkOffDayJsonAction">
+		<result name="calcMatDateJsonSuccess" type="json"><param name="noCache">true</param></result>
+		<result name="dateDiffJsonSuccess" type="json"><param name="noCache">true</param></result>
+		<result name="holidayCekJsonSuccess" type="json"><param name="noCache">true</param></result>
+	</action>
+	
+	<action name="BranchTypeAction_*" method="{1}" class="com.mpe.basic.action.BranchTypeAction">
+		<result name="success">/pages/basic/branchType/{1}.jsp</result>
+		<result name="input">/pages/basic/branchType/${previousPage}.jsp</result>
+		<result name="redirect" type="redirect">${mappedRequest}</result>
+	</action>
+	
+	<action name="BranchClassAction_*" method="{1}" class="com.mpe.basic.action.BranchClassAction">
+		<result name="success">/pages/basic/branchClass/{1}.jsp</result>
+		<result name="input">/pages/basic/branchClass/${previousPage}.jsp</result>
+		<result name="redirect" type="redirect">${mappedRequest}</result>
+	</action>
+	
+	<action name="LocationAction_*" method="{1}" class="com.mpe.basic.action.LocationAction">
+		<result name="success">/pages/basic/location/{1}.jsp</result>
+		<result name="input">/pages/basic/location/${previousPage}.jsp</result>
+		<result name="redirect" type="redirect">${mappedRequest}</result>
+	</action>
+	
+	<action name="PostalCodeAction_*" method="{1}" class="com.mpe.basic.action.PostalCodeAction">
+		<result name="success">/pages/basic/postalCode/{1}.jsp</result>
+		<result name="input">/pages/basic/postalCode/${previousPage}.jsp</result>
+		<result name="redirect" type="redirect">${mappedRequest}</result>
+	</action>
+	
+	<action name="UserSecugenAction_*" method="{1}" class="com.mpe.basic.action.UserSecugenAction">
+		<result name="success">/pages/basic/userSecugen/{1}.jsp</result>
+		<result name="input">/pages/basic/userSecugen/${previousPage}.jsp</result>
+		<result name="redirect" type="redirect">${mappedRequest}</result>
+	</action>
+		 -->
+      
+	</package>
+   
+</struts>

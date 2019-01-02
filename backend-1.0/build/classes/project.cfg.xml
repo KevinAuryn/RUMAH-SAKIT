@@ -1,0 +1,60 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory name="P2P">
+		
+		<property name="connection.datasource">java:comp/env/jdbc/backend</property>
+		<property name="dialect">org.hibernate.dialect.PostgreSQL9Dialect</property>
+		
+		
+		<property name="hibernate.show_sql">false</property>
+		<property name="hibernate.jdbc.batch_size">20</property>
+		<property name="hibernate.order_inserts">true</property>
+		<property name="hibernate.order_updates">true</property>
+		
+		<property name="hibernate.max_fetch_depth">2</property>
+		<property name="hibernate.default_batch_fetch_size">16</property>
+		<!-- <property name="hibernate.temp.use_jdbc_metadata_defaults">false</property> -->
+		
+		<!--
+		<property name="hibernate.format_sql">true</property>
+		-->
+		<property name="hibernate.hbm2ddl.auto">update</property>		
+		<property name="current_session_context_class">thread</property>
+		
+		<property name="hibernate.transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>
+		
+		<!-- 2nd level cache -->
+		<property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+	    <property name="hibernate.cache.provider_configuration_file_resource_path">/ehcache.xml</property>
+	    <property name="hibernate.cache.use_query_cache">true</property>
+	    <property name="hibernate.cache.use_structured_entries">true</property>
+	    <property name="hibernate.cache.use_second_level_cache">true</property>
+	   
+	    <property name="hibernate.generate_statistics">false</property>
+		
+		<!--  auto/none/callback/ddl -->
+		<property name="javax.persistence.validation.mode">auto</property>   
+		
+		<!-- List of annotated classes-->
+		
+		<mapping class="com.backend.model.Users"/>
+		<mapping class="com.backend.model.Role"/>
+		<mapping class="com.mpe.basic.model.Permission"/>
+				
+		<!-- 
+		<event type="pre-update">
+        <listener class="org.hibernate.cfg.beanvalidation.BeanValidationEventListener"/>
+    </event>
+    <event type="pre-insert">
+        <listener class="org.hibernate.cfg.beanvalidation.BeanValidationEventListener"/>
+    </event>
+    <event type="pre-delete">
+        <listener class="org.hibernate.cfg.beanvalidation.BeanValidationEventListener"/>
+    </event>
+    -->
+		
+	</session-factory>
+</hibernate-configuration>

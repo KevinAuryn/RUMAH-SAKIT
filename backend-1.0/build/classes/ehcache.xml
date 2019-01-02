@@ -1,0 +1,67 @@
+<?xml version="1.0" ?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             updateCheck="false"
+       xsi:noNamespaceSchemaLocation="ehcache.xsd" name="HASAM">
+
+     <diskStore path="java.io.tmpdir"/>
+
+     <cache name="com.mpe.basic.model.Lookup"
+            maxElementsInMemory="10000"
+            eternal="false"
+            overflowToDisk="false"
+            timeToLiveSeconds="86400" />
+            
+     <cache name="com.mpe.basic.model.Status"
+            maxElementsInMemory="10000"
+            eternal="false"
+            overflowToDisk="false"
+            timeToLiveSeconds="86400" />
+            
+	<cache name="com.mpe.basic.model.Permission"
+            maxElementsInMemory="10000"
+            eternal="false"
+            overflowToDisk="false"
+            timeToLiveSeconds="86400" />
+            
+	<cache name="com.mpe.basic.model.Role"
+            maxElementsInMemory="10000"
+            eternal="false"
+            overflowToDisk="false"
+            timeToLiveSeconds="86400" />
+            
+   	<cache name="com.mpe.workflow.model.Workflow"
+            maxElementsInMemory="10000"
+            eternal="false"
+            overflowToDisk="false"
+            timeToLiveSeconds="86400" />
+    <cache name="com.mpe.workflow.model.Process"
+            maxElementsInMemory="10000"
+            eternal="false"
+            overflowToDisk="false"
+            timeToLiveSeconds="86400" />
+    <cache name="com.mpe.workflow.model.PreviousProcess"
+            maxElementsInMemory="10000"
+            eternal="false"
+            overflowToDisk="false"
+            timeToLiveSeconds="86400" />
+            
+            
+             
+
+     <cache name="org.hibernate.cache.internal.StandardQueryCache"
+            maxElementsInMemory="10000"
+            eternal="false"
+            timeToLiveSeconds="86400"
+            overflowToDisk="false"
+            memoryStoreEvictionPolicy="LRU" />
+
+  <defaultCache
+          maxElementsInMemory="10000"
+          eternal="false"
+          timeToLiveSeconds="86400"
+          overflowToDisk="false"
+          memoryStoreEvictionPolicy="LRU" />
+          
+          
+          
+</ehcache>

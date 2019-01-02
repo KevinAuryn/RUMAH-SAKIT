@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>ASANI_BACKEND</display-name>
+  
+  <filter>
+      <filter-name>struts2</filter-name>
+       <filter-class>com.mpe.common.util.Struts2Dispatcher</filter-class>
+  </filter>
+  
+ <!-- <listener>
+	   <listener-class>com.p2p.mobileBackend.listener.CheckTrustedListener</listener-class>
+  </listener> -->
+   
+  <filter-mapping>
+      <filter-name>struts2</filter-name>
+      <url-pattern>*.action</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+      <filter-name>struts2</filter-name>
+      <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+      <filter-name>struts2</filter-name>
+      <url-pattern>*.js</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+      <filter-name>struts2</filter-name>
+      <url-pattern>*.css</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+      <filter-name>struts2</filter-name>
+      <url-pattern>*.png</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+      <filter-name>struts2</filter-name>
+      <url-pattern>*.gif</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+      <filter-name>struts2</filter-name>
+      <url-pattern>/exception_error.jsp</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+      <filter-name>struts2</filter-name>
+      <url-pattern>/no_privilege.jsp</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+      <filter-name>struts2</filter-name>
+      <url-pattern>/invalid_token.jsp</url-pattern>
+  </filter-mapping>
+  
+  
+ 	<!-- <servlet>
+ 		<servlet-name>QuartzInitializer</servlet-name>
+ 		<servlet-class>org.quartz.ee.servlet.QuartzInitializerServlet</servlet-class>
+ 		<init-param>
+   		<param-name>config-file</param-name>
+   		<param-value>quartz.properties</param-value>
+ 		</init-param>
+ 		<init-param>
+	    	<param-name>shutdown-on-unload</param-name>
+	      <param-value>true</param-value>
+	    </init-param>
+	    <init-param>
+	    	<param-name>wait-on-shutdown</param-name>
+	     	<param-value>true</param-value>
+	    </init-param>
+	    <init-param>
+	    	<param-name>start-scheduler-on-load</param-name>
+	      <param-value>true</param-value>
+	    </init-param>
+	</servlet> 
+	<listener>
+   		<listener-class>com.p2p.mobilescheduler.scheduler.QuartzListener</listener-class>
+ 	</listener>
+ 	 -->
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <error-page>
+    <error-code>404</error-code>
+    <location>/WEB-INF/404.jsp</location>
+  </error-page>
+  
+</web-app>
